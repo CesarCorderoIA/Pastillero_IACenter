@@ -21,7 +21,13 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
+int __io_putchar(int ch)
+{
+	while(!LL_USART_IsActiveFlag_TXE(USART2));
+	LL_USART_TransmitData8(USART2, ch);
 
+	return 0;
+}
 /* USER CODE END 0 */
 
 /* USART2 init function */
@@ -56,7 +62,7 @@ void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 1 */
 
   /* USER CODE END USART2_Init 1 */
-  USART_InitStruct.BaudRate = 38400;
+  USART_InitStruct.BaudRate = 19200;
   USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_8B;
   USART_InitStruct.StopBits = LL_USART_STOPBITS_1;
   USART_InitStruct.Parity = LL_USART_PARITY_NONE;
