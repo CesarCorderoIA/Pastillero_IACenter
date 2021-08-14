@@ -37,6 +37,7 @@ extern "C" {
 #include "stm32f3xx_ll_utils.h"
 #include "stm32f3xx_ll_pwr.h"
 #include "stm32f3xx_ll_dma.h"
+#include "stm32f3xx_ll_spi.h"
 #include "stm32f3xx_ll_usart.h"
 #include "stm32f3xx_ll_gpio.h"
 
@@ -80,14 +81,18 @@ void Error_Handler(void);
 #define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin LL_GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
-#define LD2_Pin LL_GPIO_PIN_5
-#define LD2_GPIO_Port GPIOA
+#define LCD_RESET_Pin LL_GPIO_PIN_6
+#define LCD_RESET_GPIO_Port GPIOA
+#define LCD_A0_Pin LL_GPIO_PIN_8
+#define LCD_A0_GPIO_Port GPIOA
 #define TMS_Pin LL_GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin LL_GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin LL_GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define LCD_CS_Pin LL_GPIO_PIN_6
+#define LCD_CS_GPIO_Port GPIOB
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */
