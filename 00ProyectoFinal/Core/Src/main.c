@@ -22,12 +22,10 @@
 #include "spi.h"
 #include "usart.h"
 #include "gpio.h"
-#include "HAL_Debug.h"
-#include "HAL_Display.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "HAL_Speaker.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -68,7 +66,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	HAL_Speaker_Init();
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -105,10 +103,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Debug(START_OF_EXECUTION);
+	  //HAL_Debug(START_OF_EXECUTION);
 
-	  HAL_Display_Init();
-
+	  HAL_Speaker_Activate();
+	  LL_mDelay(3000);
+	  HAL_Speaker_Deactivate();
+	  LL_mDelay(3000);
 
     /* USER CODE END WHILE */
 
